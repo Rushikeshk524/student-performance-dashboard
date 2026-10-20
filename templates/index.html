@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <p class="eyebrow">ACADEMIC ANALYTICS</p>
+            <h1>Student Performance Dashboard</h1>
+            <p class="subtitle">An overview of student results and class statistics.</p>
+        </header>
+
+        <section class="stats">
+            <article class="card">
+                <p>Total Students</p>
+                <h2>{{ stats.total_students }}</h2>
+            </article>
+            <article class="card">
+                <p>Average Marks</p>
+                <h2>{{ stats.average_marks }}</h2>
+            </article>
+            <article class="card">
+                <p>Highest Mark</p>
+                <h2>{{ stats.highest_mark }}</h2>
+            </article>
+            <article class="card">
+                <p>Lowest Mark</p>
+                <h2>{{ stats.lowest_mark }}</h2>
+            </article>
+            <article class="card">
+                <p>Pass Percentage</p>
+                <h2>{{ stats.pass_percentage }}%</h2>
+            </article>
+        </section>
+
+        <section class="panel">
+            <h2>Student Results</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Maths</th>
+                            <th>Science</th>
+                            <th>English</th>
+                            <th>Average</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in students %}
+                        <tr>
+                            <td>{{ student.name }}</td>
+                            <td>{{ student.maths }}</td>
+                            <td>{{ student.science }}</td>
+                            <td>{{ student.english }}</td>
+                            <td>{{ student.average }}</td>
+                            <td>
+                                {% if student.average >= 40 %}
+                                <span class="pass">Pass</span>
+                                {% else %}
+                                <span class="fail">Fail</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Subject-wise Average</h2>
+            {% for subject in subject_averages %}
+            <div class="subject">
+                <div class="subject-label">
+                    <span>{{ subject.name }}</span>
+                    <span>{{ subject.average }} / 100</span>
+                </div>
+                <div class="bar-track">
+                    <div class="bar" style="width: {{ subject.average }}%"></div>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+
+        <footer>
+            Student Performance Dashboard · DevOps Mini Project
+        </footer>
+    </main>
+</body>
+</html>

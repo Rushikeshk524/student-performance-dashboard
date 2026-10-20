@@ -1,0 +1,153 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f3f6fb;
+    color: #172033;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 36px 22px;
+}
+
+header {
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    color: #5268c9;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+h1 {
+    margin-bottom: 8px;
+    font-size: clamp(26px, 4vw, 38px);
+}
+
+.subtitle {
+    color: #697386;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.card, .panel {
+    background: white;
+    border: 1px solid #e4e8f0;
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.card p {
+    color: #697386;
+    font-size: 14px;
+    margin: 0 0 12px;
+}
+
+.card h2 {
+    color: #354bb1;
+    font-size: 28px;
+    margin: 0;
+}
+
+.panel {
+    margin-bottom: 22px;
+}
+
+.panel h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #edf0f5;
+    white-space: nowrap;
+}
+
+th {
+    color: #657087;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.pass, .fail {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.pass {
+    background: #e2f7e9;
+    color: #197344;
+}
+
+.fail {
+    background: #fde8e8;
+    color: #b42318;
+}
+
+.subject {
+    margin: 20px 0;
+}
+
+.subject-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.bar-track {
+    height: 10px;
+    background: #edf0f7;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    background: #5268c9;
+    border-radius: 20px;
+}
+
+footer {
+    text-align: center;
+    color: #7b8496;
+    font-size: 13px;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 22px 14px;
+    }
+
+    .card, .panel {
+        padding: 16px;
+    }
+}
